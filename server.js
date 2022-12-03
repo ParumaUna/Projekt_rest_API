@@ -1,5 +1,4 @@
 const express = require('express');
-const { default: nodeTest } = require('node:test');
 const app = express()
 app.use(express.json())
 
