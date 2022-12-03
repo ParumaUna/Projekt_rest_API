@@ -40,4 +40,15 @@ app.post('/contact',(req,res) => {
         })
     }
 })
+app.delete('/contact/:id',(req,res) => {
+    var id = req.params.id
+    var newcontacts = contacts.filter(el => el.id != id)
+    contacts = newcontacts
+
+    res.send({
+        success:true,
+        message:'Data deleted successfully',
+        data:contacts
+    })
+})
 
