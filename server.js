@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { default: nodeTest } = require('node:test');
 const app = express()
 app.use(express.json())
 
@@ -36,7 +37,6 @@ app.post('/contact',(req,res) => {
         res.send({
             success:false,
             message:" validation error",
-
         })
     }
 })
@@ -52,3 +52,19 @@ app.delete('/contact/:id',(req,res) => {
     })
 })
 
+app.put('/contact/:id',(req,res) => {
+    var id = req.params.id
+    var name = req.body.name
+    
+    var index = contacts.findIndex(el => el.id == id)
+    
+    contacts[index] = {
+        ...contacts[index],
+        name:name
+    }
+
+    res.send({
+        success:true,
+        message:'Data changed successfully',
+    })
+})
