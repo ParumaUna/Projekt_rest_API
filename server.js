@@ -21,4 +21,23 @@ app.get('/contact',(req,res) => {
     })
 })
 
+app.post('/contact',(req,res) => {
+    var name = req.body.name
+    if(name){
+        contacts.push({
+        id:(contacts.length + 1).toString(),
+        name:name
+        })
+        res.send({
+        success:true,
+        message:'Data added successfully',
+        })
+    }else{
+        res.send({
+            success:false,
+            message:" validation error",
+
+        })
+    }
+})
 
