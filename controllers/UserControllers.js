@@ -1,8 +1,8 @@
-let contacts = [ { id: "1", name:"joe" },];
+let contacts = [{ id: "1", name:"joe" }];
 
 export const getUser = (req, res) => {
-    res.send(contacts);
-  };
+    res.send(contacts)
+  }
 
 export const postUser = (req,res) => {
     var name = req.body.name
@@ -56,7 +56,7 @@ export const updateUser = (req,res) => {
     }else{
         res.send({
             success:false,
-            message:"Cannot be null",
+            message:"Cannot be null, try again!",
         })
     }
    
