@@ -1,12 +1,14 @@
 const express = require('express');
-const app = express()
+const app = express();
 
 const port = process.env.PORT || 8000;
-app.listen(port, () => console.log(`Server is up on port ${port}`))
+app.listen(port, () => console.log(`Server is up on port ${port}`));
 
 //middlewear
-app.use('/api/user', require('./routes/routes'))
-app.use(express.json())
+app.use('/api/user', require('./routes/routes'));
+app.use(express.json());
+
+
 /*
 var contacts = [
     {
