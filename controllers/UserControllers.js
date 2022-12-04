@@ -1,21 +1,16 @@
-console.log("koppling funkar");
-
-var contacts = [
+let contacts = [
     {
-        id:"1",
-        name:"Joe"
-    }
-]
-exports.getUser = (req,res) => {
-    res.send({
-        success:true,
-        message:'Data is saved successfully',
-        data:contacts
-    })
-}
+        id: "1",
+        name:"sherry"
+    },
+];
 
+export const getUser = (req, res) => {
+    res.send(contacts);
+    console.log(contacts);
+  };
 
-exports.postUser = ('/contact',(req,res) => {
+export const postUser = (req,res) => {
     var name = req.body.name
     if(name){
         contacts.push({
@@ -32,8 +27,9 @@ exports.postUser = ('/contact',(req,res) => {
             message:" validation error",
         })
     }
-})
-exports.removeUser = ('/contact/:id',(req,res) => {
+}
+
+export const removeUser = (req,res) => {
     var id = req.params.id
     var newcontacts = contacts.filter(el => el.id != id)
     contacts = newcontacts
@@ -43,9 +39,9 @@ exports.removeUser = ('/contact/:id',(req,res) => {
         message:'Data deleted successfully',
         data:contacts
     })
-})
+}
 
-exports.updateUser = ('/contact/:id',(req,res) => {
+export const updateUser = (req,res) => {
     var id = req.params.id
     var name = req.body.name
     
@@ -60,4 +56,4 @@ exports.updateUser = ('/contact/:id',(req,res) => {
         success:true,
         message:'Data changed successfully',
     })
-})
+}
