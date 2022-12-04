@@ -20,7 +20,7 @@ export const postUser = (req,res) => {
     }else{
         res.send({
             success:false,
-            message:"validation error",
+            message:"Cannot be null",
         })
     }
 }
@@ -29,23 +29,12 @@ export const removeUser = (req,res) => {
     var id = req.params.id
     var newcontacts = contacts.filter(el => el.id != id)
     contacts = newcontacts
-  
-    if(id == 1){
-        res.send({
-            success:false,
-            message:"You cannot delete this contact, try again!",
-        })
-    }else if(id != newcontacts){
-        res.send({
-            success:false,
-            message:"You cannot delete a non existing contact, try again!",
-        })
-    }else{
-        res.send({
-            success:true,
-            message:'Data deleted successfully',
-        })
-}}
+
+    res.send({
+        success:true,
+        message:'Data deleted successfully',
+    })
+}
 
 
 export const updateUser = (req,res) => {
