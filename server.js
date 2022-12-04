@@ -2,7 +2,7 @@ import express from "express";
 import routes from "./routes/routes.js";
 
 const app = express();
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 8000;
 
 //middlewear
 app.use(express.json());
