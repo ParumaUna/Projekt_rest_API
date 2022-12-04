@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express()
+
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log(`Server is up on port ${port}`))
+
+//middlewear
+app.use('/api/user', require('./routes/routes'))
 app.use(express.json())
-
-app.listen(8000,() => {
-    console.log('server is working');
-})
-
+/*
 var contacts = [
     {
         id:"1",
@@ -67,3 +69,4 @@ app.put('/contact/:id',(req,res) => {
         message:'Data changed successfully',
     })
 })
+*/
