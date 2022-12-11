@@ -9,5 +9,5 @@ app.use(express.json());
 app.use("/contacts", routes);
 
 app.listen(PORT, () => {
-    console.log(`Server is up on port ${PORT}`)
+    console.log(`Server is up on http://localhost:8000/contacts`)
 })
